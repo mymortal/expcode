@@ -77,5 +77,27 @@ public class poc {
 	}
 }
 ```
-
 ![payload](https://raw.githubusercontent.com/iBearcat/Jackson-CVE-2017-17485/master/img/1.jpg)
+官方已经更新黑名单列表，并计划在Jackson的大版本3.X通过api层实现基于白名单的序列化方式来应对多态类：
+```
+org.apache.commons.collections.functors.InvokerTransformer
+org.apache.commons.collections.functors.InstantiateTransformer
+org.apache.commons.collections4.functors.InvokerTransformer
+org.apache.commons.collections4.functors.InstantiateTransformer
+org.codehaus.groovy.runtime.ConvertedClosure
+org.codehaus.groovy.runtime.MethodClosure
+org.springframework.beans.factory.ObjectFactory
+com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl
+org.apache.xalan.xsltc.trax.TemplatesImpl
+com.sun.rowset.JdbcRowSetImpl
+java.util.logging.FileHandler
+java.rmi.server.UnicastRemoteObject
+org.springframework.aop.support.AbstractBeanFactoryPointcutAdvisor
+org.springframework.beans.factory.config.PropertyPathFactoryBean
+com.mchange.v2.c3p0.JndiRefForwardingDataSource
+com.mchange.v2.c3p0.WrapperConnectionPoolDataSource
+```
+## 修复建议
+升级到最新版本jackson-databind 2.7.9.2，2.8.11，2.9.3.1（2018-01-13 00:04:20该版本还未发布）.
+禁用enableDefaultTyping()方法；
+对客户端传入的JSON数据，进行过滤或者类型检查。
