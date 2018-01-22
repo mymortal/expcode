@@ -98,6 +98,8 @@ com.mchange.v2.c3p0.JndiRefForwardingDataSource
 com.mchange.v2.c3p0.WrapperConnectionPoolDataSource
 ```
 ## 修复建议
-升级到最新版本jackson-databind 2.7.9.2，2.8.11，2.9.3.1（2018-01-13 00:04:20该版本还未发布）.
-禁用enableDefaultTyping()方法；
+升级到最新版本jackson-databind 2.7.9.2，2.8.11，2.9.3.1（2018-01-13 00:04:20该版本还未发布）。
+
+禁用enableDefaultTyping()方法。
+
 对客户端传入的JSON数据，进行过滤或者类型检查。
