@@ -1,5 +1,7 @@
 # Jackson 反序列化
 
+漏洞环境war包基于廖师傅 https://github.com/shengqi158/Jackson-databind-RCE-PoC 的改造
+
 ## 验证代码
 
 ```
