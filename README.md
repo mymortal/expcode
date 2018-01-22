@@ -1,10 +1,27 @@
 # Jackson 反序列化
 
-本war包基于廖师傅 https://github.com/shengqi158/Jackson-databind-RCE-PoC 的改造
+## 漏洞描述
 
-基友的 https://github.com/hucheat/vulns/tree/master/cve-2017-17485_web_vuln
+CVE-2017-7525官方在漏洞产生后，通过黑名单的方式禁止黑名单中的第三方库反序列化问题而产生的代码执行漏洞,黑名单是一种不可靠的修复方式，攻击者常常可以通过一些手段绕过黑名单，造成漏洞影响。
+黑名单如下：
+```
+org.apache.commons.collections.functors.InvokerTransformer
+org.apache.commons.collections.functors.InstantiateTransformer
+org.apache.commons.collections4.functors.InvokerTransformer
+org.apache.commons.collections4.functors.InstantiateTransformer
+org.codehaus.groovy.runtime.ConvertedClosure
+org.codehaus.groovy.runtime.MethodClosure
+org.springframework.beans.factory.ObjectFactory
+com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl
+
+```
+在开启enableDefaultTyping()的前提下可以通过Jackson-databind来滥用Spring spel来执行任意命令，造成新漏洞的产生CVE-2017-17485。
 
 ## 验证代码
+
+本项目中的war包基于廖师傅 https://github.com/shengqi158/Jackson-databind-RCE-PoC 的改造
+
+基友的 https://github.com/hucheat/vulns/tree/master/cve-2017-17485_web_vuln
 
 ```
 package jackson;
