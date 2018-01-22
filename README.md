@@ -1,6 +1,8 @@
 # Jackson 反序列化
 
-漏洞环境war包基于廖师傅 https://github.com/shengqi158/Jackson-databind-RCE-PoC 的改造
+本war包基于廖师傅 https://github.com/shengqi158/Jackson-databind-RCE-PoC 的改造
+
+基友的hucheat https://github.com/hucheat/vulns/tree/master/cve-2017-17485_web_vuln
 
 ## 验证代码
 
