@@ -2,7 +2,8 @@
 
 ## 漏洞描述
 
-CVE-2017-7525官方在漏洞产生后，通过黑名单的方式禁止黑名单中的第三方库反序列化问题而产生的代码执行漏洞,黑名单是一种不可靠的修复方式，攻击者常常可以通过一些手段绕过黑名单，造成漏洞影响。
+### CVE-2017-7525
+官方在漏洞产生后，通过黑名单的方式禁止黑名单中的第三方库反序列化问题而产生的代码执行漏洞,黑名单是一种不可靠的修复方式，攻击者常常可以通过一些手段绕过黑名单，造成漏洞影响。
 黑名单如下：
 ```
 org.apache.commons.collections.functors.InvokerTransformer
@@ -15,7 +16,8 @@ org.springframework.beans.factory.ObjectFactory
 com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl
 
 ```
-在开启enableDefaultTyping()的前提下可以通过Jackson-databind来滥用Spring spel来执行任意命令，造成新漏洞的产生CVE-2017-17485。
+### 新漏洞的产生CVE-2017-17485
+在开启enableDefaultTyping()的前提下可以通过Jackson-databind来滥用Spring spel来执行任意命令。
 
 ## 验证代码
 
