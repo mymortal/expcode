@@ -23,6 +23,24 @@ com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl
 ### 新漏洞的产生CVE-2017-17485
 在开启enableDefaultTyping()的前提下可以通过Jackson-databind来滥用Spring spel来执行任意命令。
 
+## 影响范围
+
+### 受影响的版本
+
+Jackson-databind version <= 2.9.3
+
+Jackson-databind version <= 2.7.9.1
+
+Jackson-databind version <= 2.8.10
+
+### 不受影响的版本
+
+Jackson-databind version 2.9.3.1
+
+Jackson-databind version 2.7.9.2
+
+Jackson-databind version 2.8.11
+
 ## 漏洞验证
 
 本项目中的war包基于廖师傅 https://github.com/shengqi158/Jackson-databind-RCE-PoC 的改造
